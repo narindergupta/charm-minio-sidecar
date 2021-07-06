@@ -1,0 +1,20 @@
+# Copyright 2021 Canonical Ltd
+# See LICENSE file for licensing details.
+name: minio-sidecar
+description: |
+description: |
+  MinIO's high-performance object storage suite is software defined and
+  enables customers to build cloud-native data infrastructure for
+  machine learning, analytics and application data workloads
+summary: |
+  Kubernetes Native, High Performance Object Storage
+
+containers:
+  minio-server:
+    resource: minioserver-image
+
+resources:
+  minioserver-image:
+    type: oci-image
+    description: OCI image for minio server (minio/minio)
+

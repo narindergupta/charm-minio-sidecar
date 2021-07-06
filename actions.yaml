@@ -1,0 +1,15 @@
+# Copyright 2021 narinder
+# See LICENSE file for licensing details.
+#
+# If you don't need actions, you can remove the file entirely.
+# It ties in to the example _on_fortune_action handler in src/charm.py
+#
+# Learn more about actions at: https://juju.is/docs/sdk/actions
+
+fortune:
+  description: Returns a pithy phrase.
+  params:
+    fail:
+      description: "Fail with this message"
+      type: string
+      default: ""
