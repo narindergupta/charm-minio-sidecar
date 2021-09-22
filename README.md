@@ -2,12 +2,25 @@
 
 ## Description
 
-TODO: Describe your charm in a few paragraphs of Markdown
+This charm encompasses the Kubernetes operator for MinIO.
+
+The MinIO operator is a Python script that wraps the latest released MinIO, providing
+lifecycle management for each application and handling events such as install, upgrade,
+integrate, and remove.
 
 ## Usage
 
-TODO: Provide high-level usage, such as required config or relations
+## Install
+To install MinIO, run:
 
+    snap install juju --classic
+    snap install microk8s --classic
+    microk8s enable dns storage
+    juju bootstrap microk8s micro
+    juju add-model my-charm-model
+
+    charmcraft build
+    juju deploy ./minio-operator.charm --resource minio-image=minio/minio
 
 ## Developing
 

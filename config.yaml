@@ -1,21 +1,26 @@
-# Copyright 2021 Canonical Ltd.
+# Copyright 2021 root
 # See LICENSE file for licensing details.
 #
+# TEMPLATE-TODO: change this example to suit your needs.
 # If you don't need a config, you can remove the file entirely.
 # It ties in to the example _on_config_changed handler in src/charm.py
 #
 # Learn more about config at: https://juju.is/docs/sdk/config
 
 options:
+  console:
+    default: 9001
+    description: MinIo Charm Console port
+    type: int
   ports:
     default: 9000
-    description: http port where minio server is available.
+    description: Minio Charm Http port.
     type: int
-  username:
-    default: minio
-    description: Username to be passed alongwith the server to access the same.
+  access-key:
     type: string
-  password:
-    default: NULL
-    description: Password to be passed alongwith the server to access the same.
+    default: 'minio'
+    description: Access key
+  secret-key:
     type: string
+    default: 'minioadmin'
+    description: Secret key  

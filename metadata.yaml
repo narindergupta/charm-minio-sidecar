@@ -1,7 +1,6 @@
-# Copyright 2021 Canonical Ltd
+# Copyright 2021 root
 # See LICENSE file for licensing details.
-name: minio-sidecar
-description: |
+name: minio
 description: |
   MinIO's high-performance object storage suite is software defined and
   enables customers to build cloud-native data infrastructure for
@@ -9,12 +8,25 @@ description: |
 summary: |
   Kubernetes Native, High Performance Object Storage
 
+
 containers:
-  minio-server:
-    resource: minioserver-image
+   minio:
+    resource: minio-image
+    mounts:
+      - storage: miniodata
+        location: /srv
 
 resources:
-  minioserver-image:
+  minio-image:
     type: oci-image
-    description: OCI image for minio server (minio/minio)
+    description: OCI image for MinIO Image
+
+peers:
+  replicas:
+    interface: minio-replica
+
+storage:
+  miniodata:
+    type: filesystem
+    location: /srv
 
