@@ -13,14 +13,21 @@ integrate, and remove.
 ## Install
 To install MinIO, run:
 
+    lxd init --auto
     snap install juju --classic
     snap install microk8s --classic
     microk8s enable dns storage
+
+    charmcraft pack
     juju bootstrap microk8s micro
-    juju add-model my-charm-model
+    juju add-model minio-demo
 
     charmcraft build
-    juju deploy ./minio-operator.charm --resource minio-image=minio/minio
+    juju deploy ./minio_ubuntu-20.04-amd64.charm --resource minio-image=minio/minio
+
+## Debugging
+    juju show-status-log minio/0
+    juju debug-log --include minio/0
 
 ## Developing
 
